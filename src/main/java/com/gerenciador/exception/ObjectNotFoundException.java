@@ -1,4 +1,4 @@
-package com.gerenciador.resource.exception;
+package com.gerenciador.exception;
 
 public class ObjectNotFoundException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

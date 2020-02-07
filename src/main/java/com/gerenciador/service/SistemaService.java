@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.gerenciador.domain.Sistema;
 import com.gerenciador.dto.SistemaDTO;
+import com.gerenciador.exception.ObjectNotFoundException;
 import com.gerenciador.repository.SistemaRepository;
-import com.gerenciador.resource.exception.ObjectNotFoundException;
 
 @Service
 public class SistemaService {
