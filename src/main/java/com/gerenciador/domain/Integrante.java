@@ -15,18 +15,19 @@ public class Integrante implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	private Integer cpf;
+	private Long cpf;
 	private String cargo;
 	private String tipoContratacao;
 
 	public Integrante() {
 	}
 
-	public Integrante(Integer id, String nome, Integer cpf, String cargo) {
+	public Integrante(Integer id, String nome, Long cpf, String cargo, String tipoContratacao) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.cargo = cargo;
+		this.tipoContratacao = tipoContratacao;
 	}
 
 	public Integer getId() {
@@ -45,11 +46,11 @@ public class Integrante implements Serializable {
 		this.nome = nome;
 	}
 
-	public Integer getCpf() {
+	public Long getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Integer cpf) {
+	public void setCpf(Long cpf) {
 		this.cpf = cpf;
 	}
 

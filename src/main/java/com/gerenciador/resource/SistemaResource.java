@@ -55,6 +55,7 @@ public class SistemaResource {
 		return ResponseEntity.badRequest().build();
 	}
 
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> update(@RequestBody Sistema obj, @PathVariable Integer id){
 		obj.setId(id);
 		obj = service.update(obj);
