@@ -1,7 +1,6 @@
 package com.gerenciador.domain;
 
 import com.gerenciador.enums.GeneroPessoa;
-import com.gerenciador.enums.TipoPessoa;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,21 +18,21 @@ public class Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    private Integer genero;
+    private String genero;
     private String email;
     private String telefone;
-    private Integer tipoPessoa;
+
 
     public Pessoa () {
     }
 
-    public Pessoa (Integer id, String nome, GeneroPessoa genero, String email, String telefone, TipoPessoa tipoPessoa) {
+    public Pessoa (Integer id, String nome, GeneroPessoa genero, String email, String telefone) {
         this.id = id;
         this.nome = nome;
-        this.genero = genero.getId();
+        this.genero = genero.getCodigo();
         this.email = email;
         this.telefone = telefone;
-        this.tipoPessoa = tipoPessoa.getId();
+
     }
 
 
@@ -58,7 +57,7 @@ public class Pessoa implements Serializable {
     }
 
     public void setGenero (GeneroPessoa genero) {
-        this.genero = genero.getId();
+        this.genero = genero.getCodigo();
     }
 
     public String getEmail () {
@@ -77,16 +76,8 @@ public class Pessoa implements Serializable {
         this.telefone = telefone;
     }
 
-    public TipoPessoa getTipoPessoa () {
-        return TipoPessoa.toEnum(tipoPessoa);
-    }
-
-    public void setTipoPessoa (TipoPessoa tipoPessoa) {
-        this.tipoPessoa = tipoPessoa.getId();
-    }
-
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pessoa pessoa = (Pessoa) o;
@@ -94,12 +85,11 @@ public class Pessoa implements Serializable {
                 Objects.equals(nome, pessoa.nome) &&
                 Objects.equals(genero, pessoa.genero) &&
                 Objects.equals(email, pessoa.email) &&
-                Objects.equals(telefone, pessoa.telefone) &&
-                Objects.equals(tipoPessoa, pessoa.tipoPessoa);
+                Objects.equals(telefone, pessoa.telefone);
     }
 
     @Override
-    public int hashCode () {
-        return Objects.hash(id, nome, genero, email, telefone, tipoPessoa);
+    public int hashCode() {
+        return Objects.hash(id, nome, genero, email, telefone);
     }
 }

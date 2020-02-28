@@ -15,67 +15,59 @@ public class PessoaDTO implements Serializable {
     private GeneroPessoa genero;
     private String email;
     private String telefone;
-    private TipoPessoa tipoPessoa;
 
-    public PessoaDTO () {
+
+    public PessoaDTO() {
 
     }
 
-    public PessoaDTO (Pessoa obj) {
+    public PessoaDTO(Pessoa obj) {
         this.id = obj.getId();
         this.nome = obj.getNome();
         this.genero = obj.getGenero();
         this.email = obj.getEmail();
         this.telefone = obj.getTelefone();
-        this.tipoPessoa = obj.getTipoPessoa();
 
     }
 
-    public Integer getId () {
+    public Integer getId() {
         return id;
     }
 
-    public void setId (Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getNome () {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome (String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public GeneroPessoa getGenero () {
+    public GeneroPessoa getGenero() {
         return genero;
     }
 
-    public void setGenero (GeneroPessoa genero) {
+    public void setGenero(GeneroPessoa genero) {
         this.genero = genero;
     }
 
-    public String getEmail () {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail (String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getTelefone () {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone (String telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public TipoPessoa getTipoPessoa () {
-        return tipoPessoa;
-    }
-
-    public void setTipoPessoa (TipoPessoa tipoPessoa) {
-        this.tipoPessoa = tipoPessoa;
-    }
 }

@@ -45,7 +45,7 @@ public class GerenciadorApplication implements CommandLineRunner {
         Integrante integrante1 = new Integrante(null, "Débora Viana", null, "Analista de Teste", "Terceirizado");
 
 
-        Pessoa pessoa1 = new Pessoa(null, "Débora Viana", GeneroPessoa.FEMININO, "deboranwa@gmail.com", "51981109313", TipoPessoa.PESSOAFISICA);
+        Pessoa pessoa1 = new Pessoa(null, "Débora Viana", GeneroPessoa.FEMININO, "deboranwa@gmail.com", "51981109313");
 
         Equipe equipe1 = new Equipe(null, "Unidos venceremos", "a união faz a força");
 

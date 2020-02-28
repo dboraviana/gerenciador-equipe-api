@@ -1,31 +1,31 @@
 package com.gerenciador.enums;
 
 public enum GeneroPessoa {
-    FEMININO(1, "Feminino"), MASCULINO(2, "Masculino");
+    FEMININO("F", "Feminino"), MASCULINO("M", "Masculino");
 
-    private Integer id;
+    private String codigo;
     private String descricao;
 
-    GeneroPessoa (Integer id, String descricao) {
-        this.id = id;
+    GeneroPessoa (String codigo, String descricao) {
+        this.codigo = codigo;
         this.descricao = descricao;
     }
 
-    public Integer getId () {
-        return id;
+    public String getCodigo () {
+        return codigo;
     }
 
     public String getDescricao () {
         return descricao;
     }
 
-    public static GeneroPessoa toEnum(Integer id) {
+    public static GeneroPessoa toEnum(String id) {
         if (id == null) {
             return null;
         }
 
         for (GeneroPessoa generoPessoa : GeneroPessoa.values()){
-            if (id.equals(generoPessoa.getId())){
+            if (id.equals(generoPessoa.getCodigo())){
                 return generoPessoa;
             }
         }

@@ -1,0 +1,16 @@
+Problem loading XML from:'C:\jmeter\apache-jmeter-5.2.1\bin\projetos\app-poupex-mobile-test\performance\ambientes\hom\testes\EmprestimoService\EmprestimoService.jmx'.
+Cause:
+XmlPullParserException: unexpected character in markup < (position: END_TAG seen ...ame="Imprimir boleto de quitacao antecipada" enabled="false"/>\r\n<<... @97:3)
+
+ Detail:com.thoughtworks.xstream.converters.ConversionException:
+---- Debugging information ----
+cause-exception     : com.thoughtworks.xstream.converters.ConversionException
+cause-message       :
+first-jmeter-class  : org.apache.jmeter.save.converters.HashTreeConverter.unmarshal(HashTreeConverter.java:67)
+class               : org.apache.jmeter.save.ScriptWrapper
+required-type       : org.apache.jmeter.save.ScriptWrapper
+converter-type      : org.apache.jmeter.save.ScriptWrapperConverter
+path                : /jmeterTestPlan/hashTree/hashTree/hashTree
+line number         : 97
+version             : 5.2.1
+------------------------------

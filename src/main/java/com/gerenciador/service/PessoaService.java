@@ -36,7 +36,7 @@ public class PessoaService {
     }
 
     public Pessoa fromDTO (PessoaDTO objDTO) {
-        return new Pessoa(objDTO.getId(), objDTO.getNome(), objDTO.getGenero(), objDTO.getEmail(), objDTO.getTelefone(), objDTO.getTipoPessoa());
+        return new Pessoa(objDTO.getId(), objDTO.getNome(), objDTO.getGenero(), objDTO.getEmail(), objDTO.getTelefone());
 
     }
 
