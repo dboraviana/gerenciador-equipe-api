@@ -1,6 +1,7 @@
 package com.gerenciador.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,40 +13,37 @@ import com.gerenciador.repository.SistemaRepository;
 
 @Service
 public class SistemaService {
-	@Autowired
-	private SistemaRepository repositorio;
+    @Autowired
+    private SistemaRepository repositorio;
 
-	public Sistema find(Integer id) {
-		Sistema sistema = repositorio.findOne(id);
-		if (sistema == null) {
-			throw new ObjectNotFoundException("Não foi encontrado sistema com id: " + id);
+    public Sistema find(Integer id) {
+        Optional<Sistema> obj = repositorio.findById(id);
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Sistema não encontrado" + Sistema.class.getName()));
+    }
 
-		}
-		return sistema;
-	}
+    public List<Sistema> findAll() {
+        return repositorio.findAll();
+    }
 
-	public List<Sistema> findAll() {
-		return repositorio.findAll();
-	}
+    public Sistema insert(Sistema obj) {
+        obj.setId(null);
+        return repositorio.save(obj);
+    }
 
-	public Sistema insert(Sistema obj) {
-		obj.setId(null);
-		return repositorio.save(obj);
-	}
+    public Sistema fromDTO(SistemaDTO objDTO) {
+        return new Sistema(objDTO.getId(), objDTO.getNome(), objDTO.getDescricao(), objDTO.getDependencias());
+    }
 
-	public Sistema fromDTO(SistemaDTO objDTO) {
-		return new Sistema(objDTO.getId(), objDTO.getNome(), objDTO.getDescricao(), objDTO.getDependencias());
-	}
+    public void delete(Integer id) {
+        find(id);
+        repositorio.deleteById(id);
 
-	public void delete(Integer id) {
-		find(id);
-		repositorio.delete(id);
-	}
+    }
 
-	public Sistema update(Sistema obj) {
-		find(obj.getId());
-		return repositorio.save(obj);
+    public Sistema update(Sistema obj) {
+        find(obj.getId());
+        return repositorio.save(obj);
 
-	}
+    }
 
 }

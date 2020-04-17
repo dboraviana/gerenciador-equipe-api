@@ -50,10 +50,10 @@ public class GerenciadorApplication implements CommandLineRunner {
         Equipe equipe1 = new Equipe(null, "Unidos venceremos", "a união faz a força");
 
 
-        sistemaRepository.save(Arrays.asList(sistema1));
-        integranteRepository.save(Arrays.asList(integrante1));
-        pessoaRepository.save(Arrays.asList(pessoa1));
-        equipeRepository.save(Arrays.asList(equipe1));
+        sistemaRepository.saveAll(Arrays.asList(sistema1));
+        integranteRepository.saveAll(Arrays.asList(integrante1));
+        pessoaRepository.saveAll(Arrays.asList(pessoa1));
+        equipeRepository.saveAll(Arrays.asList(equipe1));
 
     }
 

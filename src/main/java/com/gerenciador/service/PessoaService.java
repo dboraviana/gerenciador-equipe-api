@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PessoaService {
@@ -18,34 +19,31 @@ public class PessoaService {
     @Autowired
     private PessoaRepository repositorio;
 
-    public Pessoa find (Integer id) {
-        Pessoa pessoa = repositorio.findOne(id);
-        if (pessoa == null) {
-            throw new ObjectNotFoundException("Não foi encontrado pessoa para o id:  " + id);
-        }
-        return pessoa;
+    public Pessoa find(Integer id) {
+        Optional<Pessoa> obj = repositorio.findById(id);
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Sistema não encontrado" + Pessoa.class.getName()));
     }
 
-    public List<Pessoa> findAll () {
+    public List<Pessoa> findAll() {
         return repositorio.findAll();
     }
 
-    public Pessoa insert (Pessoa obj) {
+    public Pessoa insert(Pessoa obj) {
         obj.setId(null);
         return repositorio.save(obj);
     }
 
-    public Pessoa fromDTO (PessoaDTO objDTO) {
+    public Pessoa fromDTO(PessoaDTO objDTO) {
         return new Pessoa(objDTO.getId(), objDTO.getNome(), objDTO.getGenero(), objDTO.getEmail(), objDTO.getTelefone());
 
     }
 
-    public void delete (Integer id) {
+    public void delete(Integer id) {
         find(id);
-        repositorio.delete(id);
+        repositorio.deleteById(id);
     }
 
-    public Pessoa update (Pessoa obj) {
+    public Pessoa update(Pessoa obj) {
         find(obj.getId());
         return repositorio.save(obj);
 
